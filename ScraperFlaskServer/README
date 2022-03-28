@@ -1,0 +1,57 @@
+ScraperFlaskServer
+
+This module Is responsible for scraping websites using scrapy.
+
+
+End points:
+  '/api/v1/scrape':
+  
+    Request Format:
+      {
+        "scrapeRequests": [
+          {
+            "scraper": "reuters",
+            "urls": ["some_url", "some_other_url"]
+          },
+          {
+            "scraper": "default",
+            "urls": ["some_url", "some_other_url"],
+            "create": "domain_name"
+          }
+        ]
+      }
+
+    Notes:
+      create is optional.
+      At least 1 scraperequest is required
+
+    
+    Response Format:
+    {
+      articles: [
+          {
+              title: "Box Office: 'The Batman' Scores $128 Million'",
+              url: "https://www.reuters.com/lifestyle/",
+              publisher: "Reuters",
+              date: "March 6, 2022",
+              content: "... a bunch of text...",
+              expert: {
+                  first-name: "Rebbeca",
+                  last-name: "Rubin",
+                  phone: "1234567890",
+                  email: "rebbeca.rubin@gmail.com"
+              },
+              date-scraped: "March 6, 2022",
+              date-updated: "March 6, 2022"
+          },
+          {
+              title: "",
+              url: "https://www.reuters.com/lifestyle/",
+              publisher: "Reuters",
+              date: "",
+              content: "... a bunch of text...",
+              expert: {},
+              date-scraped: "March 6, 2022",
+              date-updated: "March 6, 2022"
+          }
+  }

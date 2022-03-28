@@ -1,0 +1,9 @@
+How to launch for dev purposes:
+  docker compose up [--build]
+    --build 
+      Will rebuild the image and re-import the schema. This should only be done after "docker compose down --volumes"
+        WARNING!!! This while wipe the data from the db
+
+  docker compose down [--volumes]
+    --volumes
+      Brings down your volumes. This erases data but i required to re-import schema.
